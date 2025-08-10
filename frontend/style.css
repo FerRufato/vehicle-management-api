@@ -1,0 +1,68 @@
+:root {
+  font-family: system-ui, Arial, sans-serif;
+}
+
+body {
+  max-width: 1000px;
+  margin: 24px auto;
+  padding: 0 12px;
+}
+
+h1 {
+  margin-bottom: 8px;
+}
+
+.row {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+input, select, button, textarea {
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+}
+
+button {
+  cursor: pointer;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 12px;
+}
+
+th, td {
+  padding: 8px;
+  border-top: 1px solid #e5e5e5;
+  text-align: left;
+}
+
+.card {
+  border: 1px solid #e5e5e5;
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.muted {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.danger {
+  color: #b00020;
+}
+
+.ok {
+  color: #0a7a3d;
+  font-weight: 600;
+}

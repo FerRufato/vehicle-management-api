@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+    <meta charset="utf-8" />
+    <title>Vehicles SPA (HTML puro)</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+<h1>Vehicles SPA</h1>
+<p class="muted">Back: <code>http://localhost:8080</code>. Edite a constante <code>API</code> no script.</p>
+
+<!-- Filtros -->
+<section class="card">
+    <h2>Lista de veículos</h2>
+    <div class="row">
+        <input id="f-marca" placeholder="marca" />
+        <input id="f-ano" type="number" placeholder="ano" min="1900" />
+        <input id="f-cor" placeholder="cor" />
+        <button id="btn-filtrar">Filtrar</button>
+        <button id="btn-limpar">Limpar</button>
+    </div>
+
+    <table id="tbl">
+        <thead>
+        <tr><th>ID</th><th>Veículo</th><th>Marca</th><th>Ano</th><th>Cor</th><th>Vendido</th><th>Ações</th></tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</section>
+
+<!-- Formulário -->
+<section class="card" style="margin-top:16px">
+    <h2 id="form-title">Novo veículo</h2>
+    <form id="form" class="row" style="gap:12px">
+        <input id="veiculo" required placeholder="veículo" />
+        <select id="marca" required>
+            <option value="">marca…</option>
+            <option>Ford</option><option>Fiat</option><option>Chevrolet</option>
+            <option>Volkswagen</option><option>Toyota</option><option>Honda</option>
+            <option>Hyundai</option><option>Renault</option><option>Peugeot</option>
+        </select>
+        <input id="ano" type="number" required min="1900" placeholder="ano" />
+        <input id="cor" required placeholder="cor" />
+        <textarea id="descricao" placeholder="descrição" rows="2" style="flex:1"></textarea>
+        <label><input id="vendido" type="checkbox" /> Vendido</label>
+        <input id="hid-id" type="hidden" />
+        <button type="submit">Salvar</button>
+        <button type="button" id="btn-cancelar">Cancelar</button>
+        <span id="msg" class="muted"></span>
+    </form>
+</section>
+
+<!-- Relatórios -->
+<section style="margin-top:16px" class="grid-3">
+    <div class="card">
+        <h3>Não vendidos</h3>
+        <div id="r-nao-vendidos" style="font-size:32px">–</div>
+    </div>
+    <div class="card">
+        <h3>Por marca</h3>
+        <ul id="r-por-marca" class="muted"></ul>
+    </div>
+    <div class="card">
+        <h3>Por década</h3>
+        <ul id="r-por-decada" class="muted"></ul>
+    </div>
+</section>
+
+<section class="card" style="margin-top:12px">
+    <h3>Últimos 7 dias</h3>
+    <ul id="r-ultimos7" class="muted"></ul>
+</section>
+
+<!-- JavaScript separado -->
+<script src="script.js"></script>
+</body>
+</html>

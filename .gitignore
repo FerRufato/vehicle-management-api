@@ -1,0 +1,25 @@
+# Gradle
+.gradle/
+build/
+
+# IDEs
+.idea/
+*.iml
+*.ipr
+*.iws
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node (se usar algo no frontend futuramente)
+node_modules/
+dist/
+
+# Arquivos temporários
+*.tmp
+*.temp
