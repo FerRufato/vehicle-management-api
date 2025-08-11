@@ -18,7 +18,7 @@ class VeiculoService(
         "Ford", "Fiat", "Chevrolet", "Volkswagen", "Toyota", "Honda", "Hyundai", "Renault", "Peugeot"
     )
 
-    /* CREATE */
+
     fun criar(dto: VeiculoCreateDTO): VeiculoResponseDTO {
         val marcaNormalizada = normalizarMarca(dto.marca)
         validarMarca(marcaNormalizada)
@@ -36,7 +36,7 @@ class VeiculoService(
         return repo.save(entity).toResponse()
     }
 
-    /* LIST + FILTERS */
+
     fun listar(marca: String?, ano: Int?, cor: String?): List<VeiculoResponseDTO> {
         var lista = repo.findAll()
         if (!marca.isNullOrBlank()) lista = lista.filter { v -> v.marca.equals(marca, true) }
@@ -45,13 +45,13 @@ class VeiculoService(
         return lista.map { it.toResponse() }
     }
 
-    /* READ BY ID */
+
     fun buscarPorId(id: Long): VeiculoResponseDTO =
         repo.findById(id).orElseThrow {
             ResponseStatusException(HttpStatus.NOT_FOUND, "Veículo $id não encontrado")
         }.toResponse()
 
-    /* UPDATE (PUT) */
+
     fun atualizar(id: Long, dto: VeiculoCreateDTO): VeiculoResponseDTO {
         val existente = repo.findById(id).orElseThrow {
             ResponseStatusException(HttpStatus.NOT_FOUND, "Veículo $id não encontrado")
@@ -71,7 +71,7 @@ class VeiculoService(
         return repo.save(existente).toResponse()
     }
 
-    /* UPDATE (PATCH) */
+
     fun atualizarParcial(id: Long, dto: VeiculoPatchDTO): VeiculoResponseDTO {
         val existente = repo.findById(id).orElseThrow {
             ResponseStatusException(HttpStatus.NOT_FOUND, "Veículo $id não encontrado")
@@ -86,13 +86,13 @@ class VeiculoService(
         return repo.save(existente).toResponse()
     }
 
-    /* DELETE */
+
     fun deletar(id: Long) {
         if (!repo.existsById(id)) throw ResponseStatusException(HttpStatus.NOT_FOUND, "Veículo $id não encontrado")
         repo.deleteById(id)
     }
 
-    /* REPORTS */
+
     fun contarNaoVendidos(): Long =
         repo.findAll().count { !it.vendido }.toLong()
 
@@ -113,7 +113,7 @@ class VeiculoService(
         return repo.findAll().filter { it.created.isAfter(limite) }.map { it.toResponse() }
     }
 
-    /* Helpers */
+
     private fun normalizarMarca(valor: String) =
         valor.trim().lowercase().replaceFirstChar { it.titlecase() }
 

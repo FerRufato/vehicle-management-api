@@ -23,3 +23,5 @@ dist/
 # Arquivos temporários
 *.tmp
 *.temp
+
+/out/
